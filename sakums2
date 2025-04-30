@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <header>
+    <h1>Labdien, šī ir mana lapa!</h1>
+  </header>
+  <main>
+    <p>Šeit ir galvenais saturs.</p>
+  </main>
+  <footer>
+    <p>copy; 2025 Tava lapa</p>
+  </footer>
+</body>
+</html>
