@@ -1,46 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="lv">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+        /* Attēlu stili */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .image-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .image-row img {
+            width: 200px;
+            height: auto;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        /* Lightbox stils */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            width: 80%;
+            height: auto;
+            max-width: 900px;
+            max-height: 80%;
+        }
+
+        /* Poga slēgt */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background-color: rgba(0, 0, 0, 1);
+        }
+    </style>
 </head>
 
+<body>
+    <header>
+        <div class="header-container">
+            <!-- Poga Register pa kreisi -->
+            <div class="left-button">
+                <a href="register.html" class="register-button">Register</a>
+            </div>
+            <!-- Pogas Sākums un Galerija pa labi -->
+            <div class="right-buttons">
+                <a href="index.html">Sākums</a>
+                <a href="galerija.html">Galerija</a>
+            </div>
+        </div>
+    </header>
 
-  <body>
-  <header>
-    <div class="topnav">
-      <a href="index.html" >Sākums</a>
-      <a href="register.html">Register</a>
-      <a href="galerija.html">Galerija</a>
-    </div>
+    <main>
+        <!-- Attēlu konteineris -->
+        <div class="image-container">
+            <!-- Pirmā rinda ar 4 attēliem -->
+            <div class="image-row">
+                <img src="bilde1.png" alt="Bilde 1" class="thumbnail">
+                <img src="bilde2.png" alt="Bilde 2" class="thumbnail">
+                <img src="bilde3.png" alt="Bilde 3" class="thumbnail">
+                <img src="bilde4.png" alt="Bilde 4" class="thumbnail">
+            </div>
+            <!-- Otrā rinda ar 4 attēliem -->
+            <div class="image-row">
+                <img src="bilde5.png" alt="Bilde 5" class="thumbnail">
+                <img src="bilde6.png" alt="Bilde 6" class="thumbnail">
+                <img src="bilde7.png" alt="Bilde 7" class="thumbnail">
+                <img src="bilde8.png" alt="Bilde 8" class="thumbnail">
+            </div>
+            <!-- Trešā rinda ar 2 attēliem -->
+            <div class="image-row">
+                <img src="bilde9.png" alt="Bilde 9" class="thumbnail">
+                <img src="bilde10.png" alt="Bilde 10" class="thumbnail">
+            </div>
+        </div>
 
-  </header>
+        <!-- Lightbox (pilnekrāna attēla skatījums) -->
+        <div class="lightbox" id="lightbox">
+            <button class="close-btn" id="closeBtn">&times;</button>
+            <img src="" alt="Pilnekrāna attēls" id="lightboxImage">
+        </div>
 
+        <!-- Video -->
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/9-Gwdodd6io" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </main>
 
+    <footer>
+        <center>Copyright ©2025 SKAISTUMS&KOPŠANA</center>
+    </footer>
 
+    <script>
+        // Pievienot funkcionalitāti attēliem, lai tos parādītu pilnekrāna režīmā
+        const images = document.querySelectorAll('.thumbnail');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const closeBtn = document.getElementById('closeBtn');
 
+        // Atvērt attēlu pilnekrāna skatījumā
+        images.forEach(image => {
+            image.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImage.src = image.src; // Ielādē izvēlēto attēlu pilnekrāna skatījumā
+            });
+        });
 
-<main>
-  
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/9-Gwdodd6io" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        // Aizvērt lightbox
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none'; // Paslēpj lightbox
+        });
 
-   <img src="bilde1.png" style="width: 300px;">
-   <img src="bilde2.png" style="width: 300px;">
-   <img src="bilde3.png" style="width: 300px;">
-   <img src="bilde4.png" style="width: 300px;">
-   <img src="bilde5.png" style="width: 300px;"> 
-   <img src="bilde6.png" style="width: 300px;">
-   <img src="bilde7.png" style="width: 300px;">
-   <img src="bilde8.png" style="width: 300px;">
-   <img src="bilde9.png" style="width: 300px;">
-   <img src="bilde10.png" style="width: 300px;">
-  </main>
+        // Aizvērt lightbox arī klikšķinot ārpus attēla
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none'; // Paslēpj lightbox
+            }
+        });
+    </script>
+</body>
 
-  <footer>
-<center>Copyright ©2025 SKAISTUMS&KOPŠANA</center>
-  </footer>
-    </body>
 </html>

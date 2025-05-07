@@ -1,38 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="lv">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Reģistrācija</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    /* Stils paziņojumam */
+    .success-message {
+      display: none;
+      margin-top: 20px;
+      background-color: #4CAF50; /* Zaļa krāsa */
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    /* Poga stili */
+    .register-btn {
+      padding: 10px 20px;
+      background-color: #000;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .register-btn:hover {
+      background-color: #555;
+    }
+  </style>
 </head>
 
+<body>
 
-  <body>
   <header>
-    <div class="topnav">
-      <a href="index.html" >Sākums</a>
-      <a href="register.html">Register</a>
-      <a href="galerija.html">Galerija</a>
+    <div class="header-container">
+      <!-- Poga Register pa kreisi -->
+      <div class="left-button">
+        <a href="register.html" class="register-button">Register</a>
+      </div>
+      <!-- Pogas Sākums un Galerija pa labi -->
+      <div class="right-buttons">
+        <a href="index.html">Sākums</a>
+        <a href="galerija.html">Galerija</a>
+      </div>
     </div>
   </header>
- <main>
-   <form id="registerForm">
-     <label for="username">Username:</label>
-     <input type="text" id="username" name="username" required><br><br>
-     <label for="password">Password:</label>
-     <input type="password" id="password" name="password" required><br><br>
-     <button type="submit">Register</button>
-   </form>
- </main>
+
+  <main>
+    <form id="registerForm">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Value" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Value" required>
+
+      <button type="submit" class="register-btn">Register</button>
+      <button type="button" class="forgot-password">Forgot password?</button>
+    </form>
+
+    <!-- Paziņojuma laukums -->
+    <div class="success-message" id="successMessage">
+      Jūs esat veiksmīgi pieslēdzies!
+    </div>
+  </main>
 
   <footer>
-<center>Copyright ©2025 SKAISTUMS&KOPŠANA</center>
+    <center>Copyright ©2025 SKAISTUMS&KOPŠANA</center>
   </footer>
-    </body>
-</html>
 
+  <script>
+    // JavaScript funkcionalitāte
+    // Kad tiek nospiesta "Register" poga, parādās paziņojums
+    document.getElementById('registerForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Novērš formu iesniegšanu
+
+      // Parāda paziņojumu
+      document.getElementById('successMessage').style.display = 'block';
+
+      // (Papildu: Varat arī iztīrīt formu, ja nepieciešams)
+      document.getElementById('registerForm').reset();
+    });
+  </script>
+</body>
+
+</html>
 
 
 
